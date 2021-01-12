@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class DriveSubsytem extends SubsystemBase {
   /** Creates a new DriveTrain. */
 
-  private final VictorSPX motor = new VictorSPX(0); 
+  private final VictorSPX m_motor = new VictorSPX(0); 
   public DriveSubsytem() {}
 
   @Override
