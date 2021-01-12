@@ -26,7 +26,12 @@ public final class Constants {
     }
 
 
-    public static final class IntakeConstants{
+        public static final class IntakeConstants{
+            public static final int kIntakeMotorPort = 2;
+            public static final int kCompressorPort = 1;
+            public static final int kPCMPort = 0;
+            public static final int kIntakeDoubleSolenoidPort = 2;
+    
 
     }
 
@@ -65,13 +70,11 @@ public final class Constants {
 
         
 
-
-
     }
 
 
     public static final class ShooterConstants{
-
+        
     }
 
     
