@@ -4,15 +4,11 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class DriveSubsytem extends SubsystemBase {
-  /** Creates a new DriveTrain. */
-
-  private final VictorSPX motor = new VictorSPX(0); 
-  public DriveSubsytem() {}
+public class ShooterSubsystem extends SubsystemBase {
+  /** Creates a new ShooterSubsystem. */
+  public ShooterSubsystem() {}
 
   @Override
   public void periodic() {
