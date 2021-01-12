@@ -8,7 +8,13 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.JoystickConstants;
+import frc.robot.commands.Intake.RunIntake;
+import frc.robot.commands.Intake.ToggleCompressor;
+import frc.robot.commands.Intake.ToggleIntake;
+import frc.robot.commands.Shooter.RunShooter;
 import frc.robot.commands.turret.TurretJoystickCommand;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
 
 public class RobotContainer {
@@ -19,6 +25,8 @@ public class RobotContainer {
   public Joystick m_operatorController = new Joystick(JoystickConstants.kOperatorControllerPort);
 
   public final TurretSubsystem m_turret = new TurretSubsystem();
+  public final IntakeSubsystem m_intake = new IntakeSubsystem();
+  public final ShooterSubsystem m_shooter = new ShooterSubsystem();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -29,6 +37,15 @@ public class RobotContainer {
 
     // Turret Commands
     new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(0.3, m_turret));
+
+    // Intake Commands
+    new JoystickButton(m_driverController, 2).whileHeld(new RunIntake(m_intake, 0.5));
+    new JoystickButton(m_operatorController, 1).whenPressed(new ToggleIntake(m_intake));
+    new JoystickButton(m_operatorController, 3).whileHeld(new ToggleCompressor(m_intake));
+    
+    // Shooter Commands
+    new JoystickButton(m_driverController, 3).whileHeld(new RunShooter(m_shooter, 0.75));
+
     
   }
 
