@@ -15,7 +15,7 @@ import frc.robot.Constants.IntakeConstants;
 public class IntakeSubsystem extends SubsystemBase {
     private final WPI_VictorSPX intakeMotor = new WPI_VictorSPX(IntakeConstants.kIntakeMotorPort); 
     private final Compressor compressor = new Compressor(IntakeConstants.kCompressorPort);
-    private final DoubleSolenoid intakeSolenoid = new DoubleSolenoid(IntakeConstants.kPCMPort ,IntakeConstants.kIntakeDoubleSolenoidPort1,IntakeConstants.kIntakeDoubleSolenoidPort2);
+    private final DoubleSolenoid intakeSolenoid = new DoubleSolenoid(IntakeConstants.kIntakeDoubleSolenoidPort1,IntakeConstants.kIntakeDoubleSolenoidPort2);
     public boolean compressorState = false;
     public boolean intakeState = false;
 
@@ -28,10 +28,6 @@ public class IntakeSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void stopCyclinders() {
-    intakeSolenoid.set(Value.kOff);
-  }
-  
   public void runIntake(double m_speed) {
     intakeMotor.set(m_speed);
   }
@@ -49,6 +45,10 @@ public class IntakeSubsystem extends SubsystemBase {
 
   public void intakeDown() {
     intakeSolenoid.set(Value.kForward);
+  }
+
+  public void intakeOff() {
+    intakeSolenoid.set(Value.kOff);
   }
  
 

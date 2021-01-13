@@ -12,7 +12,7 @@ public class TurretJoystickCommand extends CommandBase {
   private final double speed;
   private final TurretSubsystem m_turret;
 
-  public TurretJoystickCommand(double _speed, TurretSubsystem _turret) {
+  public TurretJoystickCommand(TurretSubsystem _turret, double _speed) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.speed = _speed;
     this.m_turret = _turret;

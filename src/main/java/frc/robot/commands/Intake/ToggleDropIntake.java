@@ -7,9 +7,9 @@ package frc.robot.commands.Intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.IntakeSubsystem;
 
-public class ToggleIntake extends CommandBase {
+public class ToggleDropIntake extends CommandBase {
   private final IntakeSubsystem m_intake;
-  public ToggleIntake(IntakeSubsystem intake) {
+  public ToggleDropIntake(IntakeSubsystem intake) {
     m_intake = intake;
     addRequirements(intake);
   }
@@ -36,7 +36,10 @@ public class ToggleIntake extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_intake.stopCyclinders();
+    if(m_intake.intakeState == true)
+    {
+      m_intake.intakeOff();
+    }
   }
 
   // Returns true when the command should end.
