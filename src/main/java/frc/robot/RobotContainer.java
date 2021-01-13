@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.JoystickConstants;
+import frc.robot.commands.hooper.HoopperCommand;
 import frc.robot.commands.turret.TurretJoystickCommand;
+import frc.robot.subsystems.HoopperSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
 
 public class RobotContainer {
@@ -17,7 +19,7 @@ public class RobotContainer {
   
   public Joystick m_driverController = new Joystick(JoystickConstants.kDriverControllerPort);
   public Joystick m_operatorController = new Joystick(JoystickConstants.kOperatorControllerPort);
-
+  private final HoopperSubsystem m_hoopper = new HoopperSubsystem();
   public final TurretSubsystem m_turret = new TurretSubsystem();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -29,7 +31,8 @@ public class RobotContainer {
 
     // Turret Commands
     new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(0.3, m_turret));
-    
+    new JoystickButton(m_driverController, 2).whileHeld(new HoopperCommand(m_hoopper, 0.5));
+    new JoystickButton(m_driverController, 3).whileHeld(new HoopperCommand(m_hoopper, -0.5));
   }
 
   /**
