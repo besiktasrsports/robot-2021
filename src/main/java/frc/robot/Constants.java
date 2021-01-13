@@ -27,6 +27,12 @@ public final class Constants {
 
 
     public static final class IntakeConstants{
+        public static final int kIntakeMotorPort = 40;
+        public static final int kCompressorPort = 0;
+        public static final int kPCMPort = 0;
+        public static final int kIntakeDoubleSolenoidPort1 = 0;
+        public static final int kIntakeDoubleSolenoidPort2 = 1;
+
 
     }
 
@@ -43,12 +49,12 @@ public final class Constants {
     public static final class TurretConstants{
 
         public static final byte kTurretMotorPort = 0;
-        public static final byte kTurretEncoderA = 0;
-        public static final byte kTurretEncoderB = 0;
+        public static final byte kTurretEncoderA = 2;
+        public static final byte kTurretEncoderB = 3;
         public static final int kTurretEncoderPPR = 2048; //AMT-103
         public static final byte kToleranceInDegrees = 0;
         public static final byte kTurretHallEffect1Port = 0;
-        public static final byte kTurretHallEffect2Port = 0;
+        public static final byte kTurretHallEffect2Port = 1;
 
         public static NeutralMode kTurretMotorMode = NeutralMode.Brake; //Brake-Coast
 
@@ -62,15 +68,14 @@ public final class Constants {
         public static final double kS = 0.000;
         public static final double kV = 0.000;
         public static final double kA = 0.000;
-
-        
-
-
-
     }
 
 
     public static final class ShooterConstants{
+        public static final int kShooterMotor1Port = 30;
+        public static final int kShooterMotor2Port = 31;
+        public static final boolean kShooterInvertedMode1 = true;
+        public static final boolean kShooterInvertedMode2 = true;
 
     }
 
