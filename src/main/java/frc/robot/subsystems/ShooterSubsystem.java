@@ -16,8 +16,8 @@ public class ShooterSubsystem extends SubsystemBase {
 
 
   public ShooterSubsystem() {
-    shooterMotor1.setInverted(ShooterConstants.kShooterInvertedMode);
-    shooterMotor2.setInverted(ShooterConstants.kShooterInvertedMode);
+    shooterMotor1.setInverted(ShooterConstants.kShooterInvertedMode1);
+    shooterMotor2.setInverted(ShooterConstants.kShooterInvertedMode2);
     shooterMotor2.follow(shooterMotor1);
     
     

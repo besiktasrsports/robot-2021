@@ -27,11 +27,11 @@ public final class Constants {
 
 
     public static final class IntakeConstants{
-        public static final int kIntakeMotorPort = 2;
-        public static final int kCompressorPort = 1;
+        public static final int kIntakeMotorPort = 40;
+        public static final int kCompressorPort = 0;
         public static final int kPCMPort = 0;
-        public static final int kIntakeDoubleSolenoidPort1 = 2;
-        public static final int kIntakeDoubleSolenoidPort2 = 3;
+        public static final int kIntakeDoubleSolenoidPort1 = 0;
+        public static final int kIntakeDoubleSolenoidPort2 = 1;
 
 
     }
@@ -72,9 +72,10 @@ public final class Constants {
 
 
     public static final class ShooterConstants{
-        public static final int kShooterMotor1Port = 3;
-        public static final int kShooterMotor2Port = 4;
-        public static final boolean kShooterInvertedMode = true;
+        public static final int kShooterMotor1Port = 30;
+        public static final int kShooterMotor2Port = 31;
+        public static final boolean kShooterInvertedMode1 = true;
+        public static final boolean kShooterInvertedMode2 = true;
 
     }
 
