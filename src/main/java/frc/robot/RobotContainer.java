@@ -41,7 +41,7 @@ public class RobotContainer {
     // Intake Commands
     new JoystickButton(m_driverController, 2).whileHeld(new RunIntake(m_intake, 0.5));
     new JoystickButton(m_operatorController, 1).whenPressed(new ToggleIntake(m_intake));
-    new JoystickButton(m_operatorController, 3).whileHeld(new ToggleCompressor(m_intake));
+    new JoystickButton(m_operatorController, 3).whenPressed(new ToggleCompressor(m_intake));
     
     // Shooter Commands
     new JoystickButton(m_driverController, 3).whileHeld(new RunShooter(m_shooter, 0.75));

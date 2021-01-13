@@ -12,12 +12,15 @@ import frc.robot.Constants.ShooterConstants;
 public class ShooterSubsystem extends SubsystemBase {
     private WPI_VictorSPX shooterMotor1 = new WPI_VictorSPX(ShooterConstants.kShooterMotor1Port);
     private WPI_VictorSPX shooterMotor2 = new WPI_VictorSPX(ShooterConstants.kShooterMotor2Port);
+    
 
 
   public ShooterSubsystem() {
-    shooterMotor1.setInverted(true);
-    shooterMotor2.setInverted(true);
+    shooterMotor1.setInverted(ShooterConstants.kShooterInvertedMode);
+    shooterMotor2.setInverted(ShooterConstants.kShooterInvertedMode);
     shooterMotor2.follow(shooterMotor1);
+    
+    
   }
 
   @Override
