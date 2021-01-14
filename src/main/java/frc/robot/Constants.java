@@ -22,10 +22,6 @@ public final class Constants {
 
 
     public static final class DriveConstants {
-        public static final int lefRearMotor = 0;
-        public static final int leftFrontMotor = 0;
-        public static final int rightRearMotor = 0;
-        public static final int rightFrontMotor = 0;
     }
 
 
@@ -33,14 +29,10 @@ public final class Constants {
 
     }
 
-    public static final class HooperConstants {
-        public static final int HoopperLeftMotor = 0;
-        public static final int HoopperRightMotor = 0;
-        
-    } 
-
     public static final class FunnelConstants{
 
+        public static final int kFunnelRightMotor = 20;
+        public static final int kFunnelLeftMotor = 21;
     }
 
     public static final class AcceleratorConstants{
