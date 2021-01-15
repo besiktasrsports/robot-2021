@@ -4,14 +4,31 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DriveConstants;
 
 public class DriveSubsytem extends SubsystemBase {
   /** Creates a new DriveTrain. */
+  private final WPI_VictorSPX leftRearMotor = new WPI_VictorSPX(DriveConstants.kLeftRearMotor);
+  private final WPI_VictorSPX rightRearMotor = new WPI_VictorSPX(DriveConstants.kRightRearMotor);
+  private final WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(DriveConstants.kLeftFrontMotor);
+  private final WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(DriveConstants.kRightFrontMotor);
+  private final DifferentialDrive leftDrive = new DifferentialDrive(leftRearMotor, leftFrontMotor);
+  private final DifferentialDrive rightDrive = new DifferentialDrive(rightFrontMotor, rightRearMotor);
   public DriveSubsytem() {}
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+  public void tankDriveVolts(double leftVolts, double rightVolts) {
+    leftFrontMotor.setVoltage(leftVolts);
+    rightFrontMotor.setVoltage(-rightVolts);
+    leftDrive.feed();
+    rightDrive.feed();
   }
 }
