@@ -22,7 +22,10 @@ public final class Constants {
 
 
     public static final class DriveConstants {
-
+        public static final int kLeftRearMotor = 10;
+        public static final int kLeftFrontMotor = 11;
+        public static final int kRightRearMotor = 12;
+        public static final int kRightFrontMotor = 13;
     }
 
 
@@ -32,7 +35,7 @@ public final class Constants {
 
 
     public static final class FunnelConstants{
-
+        
     }
 
     public static final class AcceleratorConstants{
