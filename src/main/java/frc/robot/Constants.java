@@ -42,6 +42,7 @@ public final class Constants {
     }
 
     public static final class AcceleratorConstants{
+        public static final int kAccelaratorMotor = 5;
         
     }
 
