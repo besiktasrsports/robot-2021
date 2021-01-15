@@ -11,10 +11,8 @@ public class FunnelCommand extends CommandBase {
   /** Creates a new FunnelCommand. */
   private final FunnelSubsystem m_funnel;
   private final Double m_speed;
-  private final double m__speed;
-  public FunnelCommand(double speed, FunnelSubsystem funnel, double _speed) {
+  public FunnelCommand(double speed, FunnelSubsystem funnel) {
     this.m_speed = speed;
-    this.m__speed = _speed;
     this.m_funnel = funnel;
     addRequirements(m_funnel);
   }
@@ -26,7 +24,7 @@ public class FunnelCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_funnel.runFunnel(m_speed, m__speed);
+    m_funnel.runFunnel(m_speed);
   }
 
   // Called once the command ends or is interrupted.

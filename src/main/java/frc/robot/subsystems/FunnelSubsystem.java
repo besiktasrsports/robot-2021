@@ -12,7 +12,11 @@ import frc.robot.Constants.FunnelConstants;
 public class FunnelSubsystem extends SubsystemBase {
   /** Creates a new FunnelSubsystem. */
   public final WPI_VictorSPX FunnelRightMotor = new WPI_VictorSPX(FunnelConstants.kFunnelRightMotor);
+<<<<<<< HEAD
   public final WPI_VictorSPX FunnelLeftMotor = new WPI_VictorSPX(FunnelConstants.kFunnelLeftMotor);
+=======
+  public final WPI_VictorSPX FunnelLeftMOtor = new WPI_VictorSPX(FunnelConstants.kFunnelLeftMotor);
+>>>>>>> hooper
   public FunnelSubsystem() {}
 
   @Override
@@ -22,11 +26,19 @@ public class FunnelSubsystem extends SubsystemBase {
 
   public void runFunnel(double speed, double _speed){
     FunnelRightMotor.set(speed);
+<<<<<<< HEAD
     FunnelLeftMotor.set(_speed);
+=======
+    FunnelLeftMOtor.set(_speed);
+>>>>>>> hooper
   }
 
   public void stopFunnel(){
     FunnelRightMotor.set(0);
+<<<<<<< HEAD
     FunnelLeftMotor.set(0);
+=======
+    FunnelLeftMOtor.set(0);
+>>>>>>> hooper
   }
 }
