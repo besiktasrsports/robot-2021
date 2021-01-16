@@ -17,18 +17,23 @@ public class DriveSubsytem extends SubsystemBase {
   private final WPI_VictorSPX rightRearMotor = new WPI_VictorSPX(DriveConstants.kRightRearMotor);
   private final WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(DriveConstants.kLeftFrontMotor);
   private final WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(DriveConstants.kRightFrontMotor);
-  private final DifferentialDrive leftDrive = new DifferentialDrive(leftRearMotor, leftFrontMotor);
-  private final DifferentialDrive rightDrive = new DifferentialDrive(rightFrontMotor, rightRearMotor);
-  public DriveSubsytem() {}
+  private final DifferentialDrive m_drive = new DifferentialDrive(leftRearMotor, rightRearMotor);
+  public DriveSubsytem() {
+    leftFrontMotor.follow(leftRearMotor);
+    rightFrontMotor.follow(rightRearMotor);
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
   public void tankDriveVolts(double leftVolts, double rightVolts) {
-    leftFrontMotor.setVoltage(leftVolts);
-    rightFrontMotor.setVoltage(-rightVolts);
-    leftDrive.feed();
-    rightDrive.feed();
+    leftRearMotor.setVoltage(leftVolts);
+    rightRearMotor.setVoltage(-rightVolts);
+    m_drive.feed();
+  }
+
+  public void arcadeDrive(double fwd, double rot) {
+    m_drive.arcadeDrive(fwd, rot, true);
   }
 }
