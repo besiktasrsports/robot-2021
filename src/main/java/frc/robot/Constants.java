@@ -50,7 +50,7 @@ public final class Constants {
     }
 
     public static final class AcceleratorConstants{
-        public static final int kAcceleratorMotorPort = 5;
+        public static final int kAcceleratorMotorPort = 50;
         
     }
 
