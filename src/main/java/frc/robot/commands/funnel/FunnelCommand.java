@@ -12,7 +12,7 @@ public class FunnelCommand extends CommandBase {
   private final FunnelSubsystem m_funnel;
   private final Double m_speed;
   private final Double m__speed;
-  public FunnelCommand(double speed, FunnelSubsystem funnel, double _speed) {
+  public FunnelCommand( FunnelSubsystem funnel, double speed, double _speed) {
     this.m_speed = speed;
     this.m_funnel = funnel;
     this.m__speed = _speed;

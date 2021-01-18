@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.JoystickConstants;
 import frc.robot.commands.funnel.FunnelCommand;
 import frc.robot.subsystems.FunnelSubsystem;
-import frc.robot.commands.Intake.RunIntake;
-import frc.robot.commands.Intake.ToggleCompressor;
-import frc.robot.commands.Intake.ToggleDropIntake;
-import frc.robot.commands.Shooter.RunShooter;
+import frc.robot.commands.intake.RunIntake;
+import frc.robot.commands.intake.ToggleCompressor;
+import frc.robot.commands.intake.ToggleDropIntake;
+import frc.robot.commands.shooter.RunShooter;
 import frc.robot.commands.turret.TurretJoystickCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
@@ -39,8 +39,8 @@ public class RobotContainer {
 
     // Turret Commands
 
-    new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(0.3, m_turret));
-    new JoystickButton(m_driverController, 2).whileHeld(new FunnelCommand(0.5, m_funnel, 0.3));
+    new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(m_turret, 0.3));
+    new JoystickButton(m_driverController, 2).whileHeld(new FunnelCommand(m_funnel,0.5, 0.3));
 
     new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(m_turret, 0.3));
 
