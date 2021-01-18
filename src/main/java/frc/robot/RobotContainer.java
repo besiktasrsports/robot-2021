@@ -15,7 +15,9 @@ import frc.robot.commands.intake.ToggleCompressor;
 import frc.robot.commands.intake.ToggleDropIntake;
 import frc.robot.commands.shooter.RunShooter;
 import frc.robot.commands.drivetrain.JoystickDriveCommand;
+import frc.robot.commands.Accelarator.AcceleratorCommand;
 import frc.robot.commands.turret.TurretJoystickCommand;
+import frc.robot.subsystems.AcceleratorSubsystem;
 import frc.robot.subsystems.DriveSubsytem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
@@ -28,8 +30,7 @@ public class RobotContainer {
   public Joystick m_operatorController = new Joystick(JoystickConstants.kOperatorControllerPort);
   public final FunnelSubsystem m_funnel = new FunnelSubsystem();
   public final TurretSubsystem m_turret = new TurretSubsystem();
-  public final IntakeSubsystem m_intake = new IntakeSubsystem();
-  public final ShooterSubsystem m_shooter = new ShooterSubsystem();
+  public final AcceleratorSubsystem m_accelerator = new AcceleratorSubsystem();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public final DriveSubsytem m_robotDrive = new DriveSubsytem();
   public RobotContainer() {
@@ -60,6 +61,7 @@ public class RobotContainer {
 
   }
 
+    new JoystickButton(m_driverController, 4).whileHeld(new AcceleratorCommand(m_accelerator, 0.3));
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
