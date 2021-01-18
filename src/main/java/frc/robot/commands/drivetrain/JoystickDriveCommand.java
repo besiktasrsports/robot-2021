@@ -4,12 +4,22 @@
 
 package frc.robot.commands.drivetrain;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import java.util.function.DoubleSupplier;
 
-public class JoystickDrive extends CommandBase {
-  /** Creates a new JoystickDrive. */
-  public JoystickDrive() {
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.DriveSubsytem;
+
+public class JoystickDriveCommand extends CommandBase {
+  /** Creates a new JoystickDriveCommand. */
+  private final DriveSubsytem m_drive;
+  private final DoubleSupplier m_forward;
+  private final DoubleSupplier m_rotation;
+  public JoystickDriveCommand(DriveSubsytem drive, DoubleSupplier forward, DoubleSupplier rotation) {
     // Use addRequirements() here to declare subsystem dependencies.
+    m_drive = drive;
+    m_forward = forward;
+    m_rotation = rotation;
+    addRequirements(m_drive);
   }
 
   // Called when the command is initially scheduled.
@@ -18,7 +28,9 @@ public class JoystickDrive extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
+  }
 
   // Called once the command ends or is interrupted.
   @Override

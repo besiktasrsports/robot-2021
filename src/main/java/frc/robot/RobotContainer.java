@@ -14,7 +14,9 @@ import frc.robot.commands.intake.RunIntake;
 import frc.robot.commands.intake.ToggleCompressor;
 import frc.robot.commands.intake.ToggleDropIntake;
 import frc.robot.commands.shooter.RunShooter;
+import frc.robot.commands.drivetrain.JoystickDriveCommand;
 import frc.robot.commands.turret.TurretJoystickCommand;
+import frc.robot.subsystems.DriveSubsytem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
@@ -22,7 +24,6 @@ import frc.robot.subsystems.TurretSubsystem;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
-  
   public Joystick m_driverController = new Joystick(JoystickConstants.kDriverControllerPort);
   public Joystick m_operatorController = new Joystick(JoystickConstants.kOperatorControllerPort);
   public final FunnelSubsystem m_funnel = new FunnelSubsystem();
@@ -30,9 +31,12 @@ public class RobotContainer {
   public final IntakeSubsystem m_intake = new IntakeSubsystem();
   public final ShooterSubsystem m_shooter = new ShooterSubsystem();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  public final DriveSubsytem m_robotDrive = new DriveSubsytem();
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    m_robotDrive.setDefaultCommand(new JoystickDriveCommand(m_robotDrive, () -> -m_driverController.getRawAxis(1),
+        () -> m_driverController.getRawAxis(0)));
   }
 
   private void configureButtonBindings() {
