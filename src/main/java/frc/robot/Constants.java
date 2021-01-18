@@ -26,6 +26,10 @@ public final class Constants {
         public static final int kLeftFrontMotor = 11;
         public static final int kRightRearMotor = 12;
         public static final int kRightFrontMotor = 13;
+        public static final boolean kLeftRearMotorInverted = false;
+        public static final boolean kLeftFrontMotorInverted = false;
+        public static final boolean kRightRearMotorInverted = false;
+        public static final boolean kRightFrontMotorInverted = false;
     }
 
 

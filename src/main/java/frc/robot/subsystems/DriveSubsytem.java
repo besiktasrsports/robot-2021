@@ -18,7 +18,13 @@ public class DriveSubsytem extends SubsystemBase {
   private final WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(DriveConstants.kLeftFrontMotor);
   private final WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(DriveConstants.kRightFrontMotor);
   private final DifferentialDrive m_drive = new DifferentialDrive(leftRearMotor, rightRearMotor);
+  
   public DriveSubsytem() {
+    leftFrontMotor.setInverted(DriveConstants.kLeftFrontMotorInverted);
+    leftRearMotor.setInverted(DriveConstants.kLeftRearMotorInverted);
+    rightFrontMotor.setInverted(DriveConstants.kRightFrontMotorInverted);
+    rightRearMotor.setInverted(DriveConstants.kRightRearMotorInverted);
+
     leftFrontMotor.follow(leftRearMotor);
     rightFrontMotor.follow(rightRearMotor);
   }
@@ -27,6 +33,7 @@ public class DriveSubsytem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
   public void tankDriveVolts(double leftVolts, double rightVolts) {
     leftRearMotor.setVoltage(leftVolts);
     rightRearMotor.setVoltage(-rightVolts);
