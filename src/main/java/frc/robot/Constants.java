@@ -17,12 +17,11 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 public final class Constants {
     public static final class JoystickConstants {
         public static final int kDriverControllerPort = 0;
-        public static final int kOperatorControllerPort = 1;
+        public static final int kOperatorControllerPort = 0;
     }
 
 
     public static final class DriveConstants {
-
     }
 
 
@@ -36,9 +35,10 @@ public final class Constants {
 
     }
 
-
     public static final class FunnelConstants{
 
+        public static final int kFunnelRightMotor = 20;
+        public static final int kFunnelLeftMotor = 21;
     }
 
     public static final class AcceleratorConstants{

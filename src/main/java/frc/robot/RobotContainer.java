@@ -8,10 +8,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.JoystickConstants;
-import frc.robot.commands.Intake.RunIntake;
-import frc.robot.commands.Intake.ToggleCompressor;
-import frc.robot.commands.Intake.ToggleDropIntake;
-import frc.robot.commands.Shooter.RunShooter;
+import frc.robot.commands.funnel.FunnelCommand;
+import frc.robot.subsystems.FunnelSubsystem;
+import frc.robot.commands.intake.RunIntake;
+import frc.robot.commands.intake.ToggleCompressor;
+import frc.robot.commands.intake.ToggleDropIntake;
+import frc.robot.commands.shooter.RunShooter;
 import frc.robot.commands.turret.TurretJoystickCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
@@ -23,7 +25,7 @@ public class RobotContainer {
   
   public Joystick m_driverController = new Joystick(JoystickConstants.kDriverControllerPort);
   public Joystick m_operatorController = new Joystick(JoystickConstants.kOperatorControllerPort);
-
+  public final FunnelSubsystem m_funnel = new FunnelSubsystem();
   public final TurretSubsystem m_turret = new TurretSubsystem();
   public final IntakeSubsystem m_intake = new IntakeSubsystem();
   public final ShooterSubsystem m_shooter = new ShooterSubsystem();
@@ -36,6 +38,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
 
     // Turret Commands
+
+    new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(m_turret, 0.3));
+    new JoystickButton(m_driverController, 2).whileHeld(new FunnelCommand(m_funnel,0.5, 0.3));
+
     new JoystickButton(m_driverController, 1).whileHeld(new TurretJoystickCommand(m_turret, 0.3));
 
     // Intake Commands
@@ -47,6 +53,7 @@ public class RobotContainer {
     new JoystickButton(m_driverController, 3).whileHeld(new RunShooter(m_shooter, 0.75));
 
     
+
   }
 
   /**
