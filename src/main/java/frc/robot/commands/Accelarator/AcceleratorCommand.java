@@ -7,11 +7,11 @@ package frc.robot.commands.Accelarator;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.AcceleratorSubsystem;
 
-public class AccelaratorCommand extends CommandBase {
+public class AcceleratorCommand extends CommandBase {
   /** Creates a new AccelaratorCommand. */
   private final AcceleratorSubsystem m_accelarator;
-  private final Double m_speed;
-  public AccelaratorCommand(AcceleratorSubsystem accelarator, Double speed) {
+  private final double m_speed;
+  public AcceleratorCommand(AcceleratorSubsystem accelarator, double speed) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_accelarator = accelarator;
     m_speed = speed;
@@ -25,13 +25,13 @@ public class AccelaratorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_accelarator.runAccelarator(m_speed);
+    m_accelarator.runAccelerator(m_speed);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_accelarator.stopAccelarator();
+    m_accelarator.stopAccelerator();
   }
 
   // Returns true when the command should end.

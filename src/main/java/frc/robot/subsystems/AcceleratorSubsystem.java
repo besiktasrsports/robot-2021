@@ -11,7 +11,7 @@ import frc.robot.Constants.AcceleratorConstants;
 
 public class AcceleratorSubsystem extends SubsystemBase {
   /** Creates a new AcceleratorSubsystem. */
-  private final WPI_VictorSPX AccelaratorMotor = new WPI_VictorSPX(AcceleratorConstants.kAccelaratorMotor);
+  private final WPI_VictorSPX AcceleratorMotor = new WPI_VictorSPX(AcceleratorConstants.kAcceleratorMotorPort);
   public AcceleratorSubsystem() {}
 
   @Override
@@ -19,11 +19,11 @@ public class AcceleratorSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void runAccelarator(double speed){
-    AccelaratorMotor.set(speed);
+  public void runAccelerator(double speed){
+    AcceleratorMotor.set(speed);
   }
 
-  public void stopAccelarator(){
-    AccelaratorMotor.set(0);
+  public void stopAccelerator(){
+    AcceleratorMotor.set(0);
   }
 }
