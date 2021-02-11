@@ -6,6 +6,8 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
+import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -30,6 +32,17 @@ public final class Constants {
         public static final boolean kLeftFrontMotorInverted = false;
         public static final boolean kRightRearMotorInverted = false;
         public static final boolean kRightFrontMotorInverted = false;
+
+        public static final double ksVolts = 0.22;
+        public static final double kvVoltSecondsPerMeter = 1.98;
+        public static final double kaVoltSecondsSquaredPerMeter = 0.2;
+        public static final double kMaxSpeedMetersPerSecond = 3;
+        public static final double kMaxAccelerationMetersPerSecondSquared = 3;
+        public static final double kRamseteB = 2;
+        public static final double kPDriveVel = 8.5;
+        public static final double kRamseteZeta = 0.7;
+        public static final double kTrackwidthMeters = 0.69;
+        public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackwidthMeters);
     }
 
 
