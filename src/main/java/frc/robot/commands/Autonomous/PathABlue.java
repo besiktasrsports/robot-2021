@@ -6,7 +6,7 @@ package frc.robot.commands.Autonomous;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.SneakyTrajectory;
-import frc.robot.commands.intake.RunIntake;
+import frc.robot.commands.intake.AutoIntake;
 import frc.robot.subsystems.DriveSubsytem;
 import frc.robot.subsystems.IntakeSubsystem;
 
@@ -20,8 +20,8 @@ public class PathABlue extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
       super(
-        new RunIntake(intake, 0.5).raceWith(s_trajectory.getRamsete(s_trajectory.PathABlue[0])),s_trajectory.getRamsete(s_trajectory.PathABlue[1])
-        .andThen(() -> robotDrive.tankDriveVolts(0, 0)), new RunIntake(intake, 0)
+        new AutoIntake(intake, 0.5).raceWith(s_trajectory.getRamsete(s_trajectory.PathABlue[0])),s_trajectory.getRamsete(s_trajectory.PathABlue[1])
+        .andThen(() -> robotDrive.tankDriveVolts(0, 0)), new AutoIntake(intake, 0)
     );
   }
 }
