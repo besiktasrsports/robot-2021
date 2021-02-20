@@ -5,6 +5,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.geometry.Pose2d;
+import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -20,6 +22,8 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
   public static SendableChooser<Integer> autoChooser = new SendableChooser<>();
+  double x = 0;
+  double y= 0;
   
 
   /**
@@ -35,6 +39,10 @@ public class Robot extends TimedRobot {
     autoChooser.setDefaultOption("Path A Red", 0);
     autoChooser.addOption("Path A Blue", 1);
     autoChooser.addOption("Path A Blue and Red together ", 2);
+    autoChooser.addOption("Path B Red", 3);
+    autoChooser.addOption("Path B Blue", 4);
+    autoChooser.addOption("Path B Blue an Red together", 5);
+    
   }
 
   /**
@@ -67,6 +75,7 @@ public class Robot extends TimedRobot {
     m_robotContainer.m_robotDrive.resetEncoders();
     m_robotContainer.m_robotDrive.zeroHeading();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand(autoChooser.getSelected());
+    m_robotContainer.m_robotDrive.m_odometry.resetPosition(new Pose2d(x,y, null), new Rotation2d(0));
     
 
     // schedule the autonomous command (example)
