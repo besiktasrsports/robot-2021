@@ -22,8 +22,8 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
   public static SendableChooser<Integer> autoChooser = new SendableChooser<>();
-  double x = 0;
-  double y= 0;
+  double x;
+  double y;
   
 
   /**
