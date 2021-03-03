@@ -22,8 +22,7 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
   public static SendableChooser<Integer> autoChooser = new SendableChooser<>();
-  double x;
-  double y;
+ 
   
 
   /**
@@ -75,7 +74,7 @@ public class Robot extends TimedRobot {
     m_robotContainer.m_robotDrive.resetEncoders();
     m_robotContainer.m_robotDrive.zeroHeading();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand(autoChooser.getSelected());
-    m_robotContainer.m_robotDrive.m_odometry.resetPosition(new Pose2d(x,y, null), new Rotation2d(0));
+    m_robotContainer.m_robotDrive.m_odometry.resetPosition(new Pose2d(0,0, null), new Rotation2d(0));
     
 
     // schedule the autonomous command (example)
