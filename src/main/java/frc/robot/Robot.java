@@ -74,7 +74,27 @@ public class Robot extends TimedRobot {
     m_robotContainer.m_robotDrive.resetEncoders();
     m_robotContainer.m_robotDrive.zeroHeading();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand(autoChooser.getSelected());
-    m_robotContainer.m_robotDrive.m_odometry.resetPosition(new Pose2d(0,0, null), new Rotation2d(0));
+
+    if(autoChooser.getSelected() == 1){
+      m_robotContainer.m_robotDrive.m_odometry.resetPosition(m_robotContainer.s_trajectory.ZeroTrajectory[0].getInitialPose(), new Rotation2d(0));
+    }
+    if(autoChooser.getSelected() == 2){
+      m_robotContainer.m_robotDrive.m_odometry.resetPosition(m_robotContainer.s_trajectory.ZeroTrajectory[0].getInitialPose(), new Rotation2d(0));
+    }
+    if(autoChooser.getSelected() == 3){
+      m_robotContainer.m_robotDrive.m_odometry.resetPosition(m_robotContainer.s_trajectory.ZeroTrajectory[0].getInitialPose(), new Rotation2d(0));
+    }
+    if(autoChooser.getSelected() == 4){
+      m_robotContainer.m_robotDrive.m_odometry.resetPosition(m_robotContainer.s_trajectory.ZeroTrajectory[0].getInitialPose(), new Rotation2d(0));
+    }
+    if(autoChooser.getSelected() == 5){
+      m_robotContainer.m_robotDrive.m_odometry.resetPosition(m_robotContainer.s_trajectory.ZeroTrajectory[0].getInitialPose(), new Rotation2d(0));
+    }
+    if(autoChooser.getSelected() == 6){
+      m_robotContainer.m_robotDrive.m_odometry.resetPosition(m_robotContainer.s_trajectory.ZeroTrajectory[0].getInitialPose(), new Rotation2d(0));
+    }
+
+    //m_robotContainer.m_robotDrive.m_odometry.resetPosition(new Pose2d(0,0, null), new Rotation2d(0));
     
 
     // schedule the autonomous command (example)

@@ -33,6 +33,7 @@ public class SneakyTrajectory {
   public Trajectory[] PathBRed = new Trajectory[2];
   public Trajectory[] PathBBlue = new Trajectory[1];
   public Trajectory[] PathBTogether = new Trajectory[3];
+  public Trajectory[] ZeroTrajectory = new Trajectory[1];
     
     private DriveSubsytem m_drive;
 
@@ -46,7 +47,7 @@ public class SneakyTrajectory {
                                        DriveConstants.kvVoltSecondsPerMeter,
                                        DriveConstants.kaVoltSecondsSquaredPerMeter),
             DriveConstants.kDriveKinematics,
-            10);
+            DriveConstants.kMaxAutoVoltage);
             TrajectoryConfig configForward =
    new TrajectoryConfig(DriveConstants.kMaxSpeedMetersPerSecond,
      DriveConstants.kMaxAccelerationMetersPerSecondSquared)
@@ -64,6 +65,11 @@ public class SneakyTrajectory {
      .addConstraint(autoVoltageConstraint);
      configBackward.setReversed(true);
 
+     //Example
+     ZeroTrajectory[0] = TrajectoryGenerator.generateTrajectory( 
+      List.of(
+          new Pose2d(0, 0, new Rotation2d(0))),
+          configBackward);
 
      //PathA
 
