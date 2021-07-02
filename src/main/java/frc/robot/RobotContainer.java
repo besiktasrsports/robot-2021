@@ -89,10 +89,14 @@ public class RobotContainer {
       return new PathBBlue(s_trajectory, m_robotDrive, m_intake);
       case 6:
       return new PathBTogether(s_trajectory, m_robotDrive, m_intake);
-       
-       
+      case 7:
+      return new BarrelRacingPath(s_trajectory, m_robotDrive);
+      case 8:
+      return new BouncePath(s_trajectory, m_robotDrive);
+
+      
        default:
-      return null; 
+      return new DefaultAuto(s_trajectory, m_robotDrive); 
   }
 }
 }
