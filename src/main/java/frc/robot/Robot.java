@@ -41,9 +41,9 @@ public class Robot extends TimedRobot {
     autoChooser.addOption("Path A Blue and Red together ", 3);
     autoChooser.addOption("Path B Red", 4);
     autoChooser.addOption("Path B Blue", 5);
-    autoChooser.addOption("Path B Blue an Red together", 6);
-    autoChooser.addOption("Path B Blue", 7);
-    autoChooser.addOption("Path B Blue an Red together", 8);
+    autoChooser.addOption("Path B Blue and Red together", 6);
+    autoChooser.addOption("BarrelRacingPath", 7);
+    autoChooser.addOption("BouncePath", 8);
     
   }
 
