@@ -13,6 +13,7 @@ import frc.robot.commands.intake.RunIntake;
 import frc.robot.commands.intake.ToggleCompressor;
 import frc.robot.commands.intake.ToggleDropIntake;
 import frc.robot.commands.shooter.RunShooter;
+import frc.robot.commands.Autonomous.GalacticSearch.*;
 import frc.robot.commands.accelerator.AcceleratorCommand;
 import frc.robot.commands.drivetrain.JoystickDriveCommand;
 import frc.robot.commands.turret.TurretJoystickCommand;
@@ -33,8 +34,10 @@ public class RobotContainer {
   public final IntakeSubsystem m_intake = new IntakeSubsystem();
   public final ShooterSubsystem m_shooter = new ShooterSubsystem();
   public final AcceleratorSubsystem m_accelerator = new AcceleratorSubsystem();
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public final DriveSubsytem m_robotDrive = new DriveSubsytem();
+  public final SneakyTrajectory s_trajectory = new SneakyTrajectory(m_robotDrive);
+  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
@@ -70,8 +73,30 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
+  public Command getAutonomousCommand(Integer auto) {
     // An ExampleCommand will run in autonomous
-    return null;
+  
+    switch(auto){
+      case 1:
+       return new PathARed(s_trajectory, m_robotDrive, m_intake);
+      case 2:
+      return new PathABlue(s_trajectory, m_robotDrive, m_intake);
+      case 3:
+      return new PathATogether(s_trajectory, m_robotDrive, m_intake);
+      case 4:
+       return new PathBRed(s_trajectory, m_robotDrive, m_intake);
+      case 5:
+      return new PathBBlue(s_trajectory, m_robotDrive, m_intake);
+      case 6:
+      return new PathBTogether(s_trajectory, m_robotDrive, m_intake);
+      case 7:
+      return new BarrelRacingPath(s_trajectory, m_robotDrive);
+      case 8:
+      return new BouncePath(s_trajectory, m_robotDrive);
+
+      
+       default:
+      return new DefaultAuto(s_trajectory, m_robotDrive); 
   }
+}
 }
